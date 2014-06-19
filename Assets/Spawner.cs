@@ -10,7 +10,7 @@ public class Spawner : MonoBehaviour {
 	
 	void Update ()
 	{
-		spawnEnemy();
+		//spawnEnemy();
 		
 	}
 
