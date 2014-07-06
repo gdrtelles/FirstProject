@@ -65,7 +65,7 @@ public class EnemyAI : MonoBehaviour {
 		{
 			if (player.transform.localScale.magnitude > transform.localScale.magnitude)
 			{
-				player.transform.localScale += new Vector3(0.1f, 0.1f, 0.1f);
+				player.transform.localScale += new Vector3(0.05f, 0.05f, 0.05f);
 				Destroy(this.gameObject);
 				// Increase the score by 100 points
 				highscore.score += 100;
