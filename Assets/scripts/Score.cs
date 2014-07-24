@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Score : MonoBehaviour
 {
-	public int score = 0;					// The player's score.
+	public int score;					// The player's score.
 
 	
 	
@@ -12,6 +12,7 @@ public class Score : MonoBehaviour
 	
 	void Awake ()
 	{
+		score = 0;
 		// Setting up the reference.
 		//playerControl = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();
 	}

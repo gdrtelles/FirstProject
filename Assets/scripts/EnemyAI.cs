@@ -11,8 +11,13 @@ public class EnemyAI : MonoBehaviour {
 	private float enemySize;
 	private Transform player;
 	private Score highscore;
+	//private MainMenu scene;
 	public Sprite M_left;
 	public Sprite M_right;
+	public Sprite cute_Amino;
+	private Animator anim;
+	//Animator anim;
+	int smileAnim = Animator.StringToHash("smile");
 
 
 	void Awake()
@@ -21,29 +26,25 @@ public class EnemyAI : MonoBehaviour {
 		spawnpoint = GameObject.FindGameObjectWithTag("spawnPoint").transform;
 		player = GameObject.FindGameObjectWithTag ("player").transform;
 		highscore = GameObject.Find("Score").GetComponent<Score>();
+		anim = GameObject.Find ("smile").GetComponent<Animator> ();
+	
 	
 	}
 
+
+
 	void Start ()
 	{
-		rigidbody2D.velocity = new Vector2(transform.localScale.x *( moveSpeed * CheckDirection()), rigidbody2D.velocity.y);
-		if (rigidbody2D.velocity.x < 0) 
-		{
-			gameObject.GetComponent<SpriteRenderer> ().sprite = M_left;
-		} 
-		else if (rigidbody2D.velocity.x > 0) 
-		{
-			gameObject.GetComponent<SpriteRenderer> ().sprite = M_right;
-		}
-	}
 	
+		//anim = smile.GetComponent<Animator>();
+		levelSetup ();
+	}
+
 	void FixedUpdate ()
 	{
 		if (CheckXDistance())
 				Destroy (this.gameObject);
 
-		//playerSize = player.transform.localScale.magnitude;
-		//enemySize = transform.localScale.magnitude;
 	}
 
 
@@ -63,18 +64,70 @@ public class EnemyAI : MonoBehaviour {
 		
 		if (col.gameObject.tag == "player") 
 		{
-			if (player.transform.localScale.magnitude > transform.localScale.magnitude)
+			if (player.transform.localScale.magnitude + 0.3f >= transform.localScale.magnitude)
 			{
-				player.transform.localScale += new Vector3(0.05f, 0.05f, 0.05f);
+				player.transform.localScale += new Vector3(0.025f, 0.025f, 0.025f);
 				Destroy(this.gameObject);
 				// Increase the score by 100 points
 				highscore.score += 100;
+				anim.SetTrigger(smileAnim);
+
+			
 			}
 			else if(player.transform.localScale.magnitude < transform.localScale.magnitude)
 			{
-				Application.LoadLevel (0);
+				updateHighScore();
+				GameObject menuObject = GameObject.FindGameObjectWithTag("Menu");
+				MainMenu menu = menuObject.GetComponent<MainMenu>();
+				menu.EndGame();
+			
 			}
 		}	
+	}
+
+	void levelSetup()
+	{
+		if (Application.loadedLevelName == "ice_Level") 
+		{
+			rigidbody2D.velocity = new Vector2 (transform.localScale.x * (moveSpeed * CheckDirection ()), rigidbody2D.velocity.y);
+			Destroy(gameObject.collider2D);
+			rigidbody2D.mass = 0;
+
+			  
+			if (rigidbody2D.velocity.x < 0) 
+			{
+				gameObject.GetComponent<SpriteRenderer> ().sprite = M_left;
+				gameObject.AddComponent<PolygonCollider2D>();
+			}
+			else if (rigidbody2D.velocity.x > 0) 
+			{
+				gameObject.GetComponent<SpriteRenderer> ().sprite = M_right;
+				gameObject.AddComponent<PolygonCollider2D>();
+			}
+		}
+		else if(Application.loadedLevelName == "cell_Level")
+		{
+			//rigidbody2D.velocity = new Vector2 (transform.localScale.x * (moveSpeed * CheckDirection ()), rigidbody2D.velocity.y);
+			moveSpeed = 12.0f;
+			rigidbody2D.velocity = new Vector2 ((spawnpoint.transform.position.x - transform.position.x)/moveSpeed, (spawnpoint.transform.position.y - transform.position.y)/moveSpeed);
+			gameObject.GetComponent<SpriteRenderer> ().sprite = cute_Amino;
+		}
+	}
+
+	void updateHighScore()
+	{
+
+		if (Application.loadedLevelName == "ice_Level") 
+		{
+			if (highscore.score > PlayerPrefs.GetInt("ice Score"))
+				PlayerPrefs.SetInt("ice Score", highscore.score);
+	
+		}
+		else if(Application.loadedLevelName == "cell_Level")
+		{
+			if (highscore.score > PlayerPrefs.GetInt("cell Score"))
+				PlayerPrefs.SetInt("cell Score", highscore.score);
+		}
 	}
 
 }
