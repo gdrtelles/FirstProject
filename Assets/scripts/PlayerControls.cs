@@ -4,13 +4,104 @@ using System.Collections;
 public class PlayerControls : MonoBehaviour {
 			
 
-	public float moveForce = 365f;			// Amount of force added to move the player left and right.
-	public float maxSpeed = 5f;				// The fastest the player can travel in the x axis.
+	private float moveForce = 365f;			// Amount of force added to move the player left and right.
+	private float maxSpeed = 5f;				// The fastest the player can travel in the x axis.
+	public bool powerActive = false;
+	public bool speedActive = false;
+	public float timeLeftI = 0.0f;
+	public float timeLeftS = 0.0f;
+	public ParticleSystem invincible, bubble;
+	public ParticleSystem speed;
+	public bool OnorOff = false;
 
 
+	void Awake()
+	{
+
+		invincible = GameObject.Find("Invincible").GetComponent<ParticleSystem>();
+		bubble = GameObject.Find("Bubble").GetComponent<ParticleSystem>();
+		speed = GameObject.Find("speed").GetComponent<ParticleSystem>();
+
+		invincible.Pause ();
+		//bubble.Pause ();
+		speed.Pause ();
+
+	}
+
+
+	void OnCollisionEnter2D(Collision2D col)
+	{
+		if (col.gameObject.tag == "powerUp") 
+		{
+			invincible.startSize = (transform.localScale.magnitude)*0.25f;
+			bubble.startSize = (transform.localScale.magnitude)*0.8f;
+			speed.transform.localScale = (transform.localScale)*0.25f;
+		
+		
+			int choice = Random.Range(1,10);
+			if(choice <= 5)
+			{
+				powerActive = true;
+				timeLeftI = 15.0f;
+				invincible.Play ();
+			}
+			else if (choice > 5)
+			{
+				speedActive = true;
+				timeLeftS = 20.0f;
+				speed.Play ();
+			}
+			
+		}
+	}
+
+
+	
+	void Update()
+	{
+		timeLeftI -= Time.deltaTime;
+		timeLeftS -= Time.deltaTime;
+		if(timeLeftI < 0)
+		{
+			invincible.Pause ();
+			invincible.Clear();
+			powerActive = false;
+		}
+		if(timeLeftS < 0)
+		{
+			speed.Pause ();
+			speed.Clear();
+			speedActive = false;
+		
+		}
+	}
 	
 	void FixedUpdate() {
-	
+
+
+			if (Input.GetKeyDown (KeyCode.Space)) 
+			{
+				OnorOff = !OnorOff;
+			} 
+			//else if (Input.GetKeyDown (KeyCode.Space) && line.enabled == true) 
+			//{
+				//line.enabled = false;
+			//}
+			
+			if (speedActive) 
+			{
+				moveForce = 7000f;
+				maxSpeed = 10f;
+				rigidbody2D.drag = 10f;
+				
+			}
+			else 
+			{
+				moveForce = 365f;
+				maxSpeed = 5f;
+				rigidbody2D.drag = 1.5f;
+				
+			}
 			float moveleft = Input.GetAxis("left");
 			float moveright = Input.GetAxis("right");
 			float moveup = Input.GetAxis("up");

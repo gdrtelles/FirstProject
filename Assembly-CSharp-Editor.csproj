@@ -46,41 +46,19 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Mobile-Cartoony\ThirdParty\NGUI\Scripts\Editor\ComponentSelector.cs" />
-     <Compile Include="Assets\Mobile-Cartoony\ThirdParty\NGUI\Scripts\Editor\NGUITransformInspector.cs" />
-     <Compile Include="Assets\Mobile-Cartoony\ThirdParty\NGUI\Scripts\Editor\UIAtlasInspector.cs" />
-     <Compile Include="Assets\Mobile-Cartoony\ThirdParty\NGUI\Scripts\Editor\UIDrawCallInspector.cs" />
-     <Compile Include="Assets\Mobile-Cartoony\ThirdParty\NGUI\Scripts\Editor\UIFilledSpriteInspector.cs" />
-     <Compile Include="Assets\Mobile-Cartoony\ThirdParty\NGUI\Scripts\Editor\UIFontInspector.cs" />
-     <Compile Include="Assets\Mobile-Cartoony\ThirdParty\NGUI\Scripts\Editor\UIImageButtonInspector.cs" />
-     <Compile Include="Assets\Mobile-Cartoony\ThirdParty\NGUI\Scripts\Editor\UILabelInspector.cs" />
-     <Compile Include="Assets\Mobile-Cartoony\ThirdParty\NGUI\Scripts\Editor\UIPopupListInspector.cs" />
-     <Compile Include="Assets\Mobile-Cartoony\ThirdParty\NGUI\Scripts\Editor\UIScrollBarInspector.cs" />
-     <Compile Include="Assets\Mobile-Cartoony\ThirdParty\NGUI\Scripts\Editor\UISettings.cs" />
-     <Compile Include="Assets\Mobile-Cartoony\ThirdParty\NGUI\Scripts\Editor\UISlicedSpriteInspector.cs" />
-     <Compile Include="Assets\Mobile-Cartoony\ThirdParty\NGUI\Scripts\Editor\UISliderInspector.cs" />
-     <Compile Include="Assets\Mobile-Cartoony\ThirdParty\NGUI\Scripts\Editor\UISpriteAnimationInspector.cs" />
-     <Compile Include="Assets\Mobile-Cartoony\ThirdParty\NGUI\Scripts\Editor\UISpriteInspector.cs" />
-     <Compile Include="Assets\Mobile-Cartoony\ThirdParty\NGUI\Scripts\Editor\UITextureInspector.cs" />
-     <Compile Include="Assets\Mobile-Cartoony\ThirdParty\NGUI\Scripts\Editor\UITiledSpriteInspector.cs" />
-     <Compile Include="Assets\Mobile-Cartoony\ThirdParty\NGUI\Scripts\Editor\UIWidgetInspector.cs" />
-     <None Include="Assets\Mobile-Cartoony\ThirdParty\NGUI\Resources\Shaders\Depth.shader" />
-     <None Include="Assets\Mobile-Cartoony\ThirdParty\NGUI\Resources\Shaders\Unlit - Masked Colored.shader" />
-     <None Include="Assets\Mobile-Cartoony\ReadMe.txt" />
-     <None Include="Assets\Mobile-Cartoony\ThirdParty\NGUI\Resources\Shaders\Unlit - Transparent Colored (AlphaClip).shader" />
+     <Compile Include="Assets\JMO Assets\Cartoon FX Easy Editor\Editor\CFXEasyEditor.cs" />
+     <Compile Include="Assets\JMO Assets\Cartoon FX\Editor\CFX_InspectorHelpEditor.cs" />
+     <Compile Include="Assets\JMO Assets\Cartoon FX\Editor\CFX_SpawnSystemEditor.cs" />
+     <None Include="Assets\JMO Assets\Cartoon FX\Shaders (Mobile)\CFXM_MobileParticleAdd_Alpha8.shader" />
+     <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX2 Particle Alpha Blend Add.shader" />
+     <None Include="Assets\JMO Assets\Cartoon FX Easy Editor\CartoonFX Easy Editor Readme.txt" />
+     <None Include="Assets\JMO Assets\!JMO Assets Readme.txt" />
      <None Include="Assets\ParticleShader\Shaders\DustMote.shader" />
-     <None Include="Assets\Mobile-Cartoony\ThirdParty\NGUI\ReadMe.txt" />
-     <None Include="Assets\Mobile-Cartoony\ThirdParty\NGUI\Resources\Shaders\Unlit - Transparent Colored.shader" />
-     <None Include="Assets\Mobile-Cartoony\ThirdParty\NGUI\Resources\Shaders\Unlit - Transparent Colored (HardClip).shader" />
-     <None Include="Assets\Mobile-Cartoony\ThirdParty\NGUI\Resources\Shaders\Unlit - Transparent Colored Overlay.shader" />
-     <None Include="Assets\Mobile-Cartoony\ThirdParty\NGUI\Resources\Shaders\Unlit - Transparent Colored (Packed).shader" />
-     <None Include="Assets\Mobile-Cartoony\ThirdParty\NGUI\Resources\Shaders\Unlit - Additive Colored.shader" />
-     <None Include="Assets\Mobile-Cartoony\ThirdParty\NGUI\Resources\Shaders\Unlit - Transparent Colored (SoftClip).shader" />
- <Reference Include="NGUI">
- <HintPath>C:/Users/Ruben/Documents/GitHub/FirstProject/Assets/Mobile-Cartoony/ThirdParty/NGUI/DLLs/NGUI.dll</HintPath>
- </Reference>
- <Reference Include="NGUI_Editor">
- <HintPath>C:/Users/Ruben/Documents/GitHub/FirstProject/Assets/Mobile-Cartoony/ThirdParty/NGUI/DLLs/Editor/NGUI_Editor.dll</HintPath>
+     <None Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_WaterWiggle.shader" />
+     <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX2 Particle Alpha Blend Tint.shader" />
+     <None Include="Assets\JMO Assets\Cartoon FX\CartoonFX2 Readme.txt" />
+ <Reference Include="JMOAssets">
+ <HintPath>C:/Users/Ruben/Documents/GitHub/FirstProject/Assets/JMO Assets/Editor/JMOAssets.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>

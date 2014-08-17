@@ -35,11 +35,9 @@ public class MainMenu : MonoBehaviour {
 
 		
 		if(Input.GetKeyDown(KeyCode.Escape)){
-			print ("hey its working");
 			if(currentState == menuState.game){
 				Time.timeScale = 0;
 				currentState = menuState.pauseMenu;
-				print ("hey its working");
 			}
 			else if(currentState == menuState.pauseMenu || currentState == menuState.pauseOptions){
 				Time.timeScale = 1;

@@ -2,7 +2,11 @@ fileFormatVersion: 2
 guid: 0879afaa1f6ddca429d1a7d8f48a00b9
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - state: {fileID: 11400000, guid: 4ec6c73f4a202894aa5dad91bade43cc, type: 2}
+  - M_left: {instanceID: 0}
+  - M_right: {instanceID: 0}
+  - cute_Amino: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

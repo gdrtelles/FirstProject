@@ -11,6 +11,7 @@ public class EnemyAI : MonoBehaviour {
 	private float enemySize;
 	private Transform player;
 	private Score highscore;
+	private PlayerControls state;
 	//private MainMenu scene;
 	public Sprite M_left;
 	public Sprite M_right;
@@ -26,7 +27,9 @@ public class EnemyAI : MonoBehaviour {
 		spawnpoint = GameObject.FindGameObjectWithTag("spawnPoint").transform;
 		player = GameObject.FindGameObjectWithTag ("player").transform;
 		highscore = GameObject.Find("Score").GetComponent<Score>();
+		state = GameObject.Find("Player").GetComponent<PlayerControls>();
 		anim = GameObject.Find ("smile").GetComponent<Animator> ();
+
 	
 	
 	}
@@ -74,7 +77,7 @@ public class EnemyAI : MonoBehaviour {
 
 			
 			}
-			else if(player.transform.localScale.magnitude < transform.localScale.magnitude)
+			else if((player.transform.localScale.magnitude < transform.localScale.magnitude) && !state.powerActive)
 			{
 				updateHighScore();
 				GameObject menuObject = GameObject.FindGameObjectWithTag("Menu");

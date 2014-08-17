@@ -6,16 +6,19 @@ public class Spawner : MonoBehaviour {
 
 	public  GameObject Enemy1; //amino
 	public  GameObject Enemy2; //mammoth
+	public  GameObject PowerUp;
 	public  GameObject Player;
 	private Vector2 offset;
 	private float distance = 24f;
 	public  bool inACoroutine = false;
 	public  float spawnTime = 3f;
+	private int count = 0;
 
 	void Start()
 	{
 		Enemy1.transform.localScale = new Vector3 (1.0f,1.0f,1.0f);
 		Enemy2.transform.localScale = new Vector3 (1.0f,1.0f,1.0f);
+		count = 0;
 	}
 	void Update ()
 	{
@@ -50,12 +53,13 @@ public class Spawner : MonoBehaviour {
 		}
 		else if(Application.loadedLevelName == "cell_Level")
 		{
-
+			count++;
 			float randomDegrees = Random.Range (0f, 360f);
 			float x_onCircle = 15 * Mathf.Cos(randomDegrees * Mathf.PI/180);
 			float y_onCircle = 15 * Mathf.Sin(randomDegrees * Mathf.PI/180);
 			float rs = Random.Range (1.0f, 2.0f);
 			float xrandomizer = Mathf.Sign (Random.Range (-1.0f, 1.0f));
+			offset = new Vector2(transform.position.x + x_onCircle,transform.position.y + y_onCircle);
 			if(Player.transform.localScale.magnitude < 3.8f)
 			{
 				rs = (rs * xrandomizer) + Player.transform.localScale.magnitude;
@@ -64,13 +68,19 @@ public class Spawner : MonoBehaviour {
 			{
 				rs = (rs * xrandomizer) + 3.8f;
 			}
-
-			offset = new Vector2(transform.position.x + x_onCircle,transform.position.y + y_onCircle);
-			Instantiate(Enemy1, offset, transform.rotation);
-			Enemy1.transform.localScale = new Vector3 (rs,rs,rs);
-		
-		
-
+			if(count % 33 == 0)
+			{
+				randomDegrees = Random.Range (0f, 360f);
+				x_onCircle = 5 * Mathf.Cos(randomDegrees * Mathf.PI/180);
+				y_onCircle = 5 * Mathf.Sin(randomDegrees * Mathf.PI/180);
+				offset = new Vector2(transform.position.x + x_onCircle,transform.position.y + y_onCircle);
+				Instantiate(PowerUp, offset, transform.rotation);
+			}
+			else
+			{
+				Instantiate(Enemy1, offset, transform.rotation);
+				Enemy1.transform.localScale = new Vector3 (rs,rs,rs);
+			}
 		}
 				
 			
