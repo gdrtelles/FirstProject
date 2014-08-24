@@ -47,6 +47,14 @@ public class EnemyAI : MonoBehaviour {
 	{
 		if (CheckXDistance())
 				Destroy (this.gameObject);
+		if (state.powerActive) 
+		{
+			rigidbody2D.mass = 0f;
+		}
+		else
+		{
+			rigidbody2D.mass = 30f;
+		}
 
 	}
 
@@ -85,6 +93,7 @@ public class EnemyAI : MonoBehaviour {
 				menu.EndGame();
 			
 			}
+		
 		}	
 	}
 

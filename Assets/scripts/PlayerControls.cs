@@ -8,11 +8,13 @@ public class PlayerControls : MonoBehaviour {
 	private float maxSpeed = 5f;				// The fastest the player can travel in the x axis.
 	public bool powerActive = false;
 	public bool speedActive = false;
+	public bool invincActive = false;
 	public float timeLeftI = 0.0f;
 	public float timeLeftS = 0.0f;
 	public ParticleSystem invincible, bubble;
 	public ParticleSystem speed;
 	public bool OnorOff = false;
+	private SpriteRenderer invinc;
 
 
 	void Awake()
@@ -21,10 +23,14 @@ public class PlayerControls : MonoBehaviour {
 		invincible = GameObject.Find("Invincible").GetComponent<ParticleSystem>();
 		bubble = GameObject.Find("Bubble").GetComponent<ParticleSystem>();
 		speed = GameObject.Find("speed").GetComponent<ParticleSystem>();
+		invinc = GameObject.Find ("invincibility").GetComponent<SpriteRenderer> ();
 
+		//invinc.enabled = false;
+		invinc.color = Color.grey;
 		invincible.Pause ();
 		//bubble.Pause ();
 		speed.Pause ();
+
 
 	}
 
@@ -41,9 +47,11 @@ public class PlayerControls : MonoBehaviour {
 			int choice = Random.Range(1,10);
 			if(choice <= 5)
 			{
-				powerActive = true;
-				timeLeftI = 15.0f;
-				invincible.Play ();
+				invinc.color = Color.white;
+
+				//powerActive = true;
+				//timeLeftI = 15.0f;
+				//invincible.Play ();
 			}
 			else if (choice > 5)
 			{
@@ -66,6 +74,7 @@ public class PlayerControls : MonoBehaviour {
 			invincible.Pause ();
 			invincible.Clear();
 			powerActive = false;
+
 		}
 		if(timeLeftS < 0)
 		{
