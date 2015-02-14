@@ -5,6 +5,7 @@ public class EnemyAI : MonoBehaviour {
 
 	// Use this for initialization
 	private Transform spawnpoint;
+	public  GameObject deathEffect;
 	public  float moveSpeed = 4.0f;
 	public  float xDistance = 26f;
 	private float playerSize;
@@ -16,7 +17,11 @@ public class EnemyAI : MonoBehaviour {
 	public Sprite M_left;
 	public Sprite M_right;
 	public Sprite cute_Amino;
+	//public AudioClip bubble1;
 	private Animator anim;
+	//public ParticleSystem deathEffect;
+
+
 	//Animator anim;
 	int smileAnim = Animator.StringToHash("smile");
 
@@ -29,6 +34,7 @@ public class EnemyAI : MonoBehaviour {
 		highscore = GameObject.Find("Score").GetComponent<Score>();
 		state = GameObject.Find("Player").GetComponent<PlayerControls>();
 		anim = GameObject.Find ("smile").GetComponent<Animator> ();
+		//deathEffect = GameObject.FindGameObjectWithTag ("peffect").particleSystem;
 
 	
 	
@@ -77,10 +83,19 @@ public class EnemyAI : MonoBehaviour {
 		{
 			if (player.transform.localScale.magnitude + 0.3f >= transform.localScale.magnitude)
 			{
+				deathEffect.particleSystem.startSize = (transform.localScale.magnitude)*0.05f;
+				Instantiate(deathEffect, transform.position, transform.rotation);
+
+				
+				//state.deathEffect.transform.position = transform.position;
+
 				player.transform.localScale += new Vector3(0.025f, 0.025f, 0.025f);
+				//state.deathEffect.Play();
 				Destroy(this.gameObject);
+				state.bubblePopeffect();
 				// Increase the score by 100 points
 				highscore.score += 100;
+				if(state.dpointsActive) highscore.score += 100;
 				anim.SetTrigger(smileAnim);
 
 			

@@ -1,22 +1,20 @@
 Base path: C:/Program Files (x86)/Unity/Editor/Data
-Pipe name: \\.\pipe\UnityShaderCompiler-4-11224
+Pipe name: \\.\pipe\UnityShaderCompiler-4-10076
 Cmd: getPlatforms
 Cmd: compileSnippet
-  api=4 type=0 insize=6104 outsize=3240 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1
+  api=1 type=0 insize=6126 outsize=922 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1
 Cmd: compileSnippet
-  api=1 type=0 insize=6104 outsize=419 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_ON DIRLIGHTMAP_OFF ok=1
+  api=0 type=0 insize=6126 outsize=1692 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF VERTEXLIGHT_ON ok=1
 Cmd: compileSnippet
-  api=0 type=0 insize=6104 outsize=1819 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_OFF DIRLIGHTMAP_OFF VERTEXLIGHT_ON ok=1
+  api=0 type=1 insize=6126 outsize=1796 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1
 Cmd: compileSnippet
-  api=4 type=1 insize=6104 outsize=3671 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_ON DIRLIGHTMAP_OFF ok=1
+  api=0 type=0 insize=4022 outsize=735 kw=DIRECTIONAL ok=1
 Cmd: compileSnippet
-  api=0 type=1 insize=6104 outsize=1768 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_ON DIRLIGHTMAP_OFF ok=1
+  api=0 type=0 insize=4022 outsize=851 kw=DIRECTIONAL_COOKIE ok=1
 Cmd: compileSnippet
-  api=4 type=0 insize=4000 outsize=3200 kw=POINT ok=1
+  api=4 type=1 insize=4022 outsize=2087 kw=DIRECTIONAL ok=1
 Cmd: compileSnippet
-  api=1 type=0 insize=4000 outsize=528 kw=POINT_COOKIE ok=1
-Cmd: compileSnippet
-  api=4 type=1 insize=4000 outsize=2087 kw=DIRECTIONAL ok=1
+  api=4 type=1 insize=4022 outsize=2135 kw=DIRECTIONAL_COOKIE ok=1
 Unhandled exception: Readfile from pipe failed. GLE=The pipe has been ended.
 
 

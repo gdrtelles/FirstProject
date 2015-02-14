@@ -16,7 +16,7 @@ public class Circle : MonoBehaviour
 		state = GameObject.Find("Player").GetComponent<PlayerControls>();
 		line.SetVertexCount (segments + 1);
 		line.useWorldSpace = false;
-		line.enabled = false;
+
 	
 	}
 	void Update()

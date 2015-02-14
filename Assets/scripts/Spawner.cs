@@ -68,11 +68,11 @@ public class Spawner : MonoBehaviour {
 			{
 				rs = (rs * xrandomizer) + 3.8f;
 			}
-			if(count % 33 == 0)
+			if(count % 10 == 0)
 			{
 				randomDegrees = Random.Range (0f, 360f);
-				x_onCircle = 5 * Mathf.Cos(randomDegrees * Mathf.PI/180);
-				y_onCircle = 5 * Mathf.Sin(randomDegrees * Mathf.PI/180);
+				x_onCircle = 4 * Mathf.Cos(randomDegrees * Mathf.PI/180);
+				y_onCircle = 4 * Mathf.Sin(randomDegrees * Mathf.PI/180);
 				offset = new Vector2(transform.position.x + x_onCircle,transform.position.y + y_onCircle);
 				Instantiate(PowerUp, offset, transform.rotation);
 			}
